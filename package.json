@@ -1,0 +1,22 @@
+{
+  "name": "solid-dnd-site",
+  "version": "0.1.0",
+  "description": "Website for Solid Drag & Drop library.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.3.2",
+    "vite": "^2.3.8",
+    "vite-plugin-solid": "^2.0.0",
+    "vite-plugin-windicss": "^1.1.1"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^4.4.5",
+    "classcat": "^5.0.3",
+    "solid-app-router": "^0.0.50",
+    "solid-js": "^1.0.0"
+  }
+}
