@@ -4,8 +4,12 @@ export default defineConfig({
   darkMode: false,
   theme: {
     fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      sans: ["Poppins", "Inter", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        gradient: "linear-gradient(90deg, #2c4f7c 0%, #4f88c6 100%)",
+      },
+    },
   },
 });
