@@ -1,9 +1,12 @@
+import { createEffect, createSignal, onCleanup } from "solid-js";
+import cc from "classcat";
+
 import { Demo } from "../demo";
 
 const NavLink = (props) => {
   return (
     <a
-      class="inline-block text-black no-underline hover:text-gray-800 hover:underline py-2 px-4"
+      class="inline-block no-underline hover:text-gray-800 hover:underline py-2 px-4"
       href={props.href}
     >
       {props.children}
@@ -12,13 +15,34 @@ const NavLink = (props) => {
 };
 
 export default function About(props) {
+  const [scrolled, setScrolled] = createSignal(false);
+
+  const onScroll = (event) => {
+    if (window.scrollY > 10) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  createEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    onCleanup(() => window.removeEventListener("scroll", onScroll));
+  });
+
   return (
     <div class="leading-normal tracking-normal text-white bg-gradient">
-      <nav id="header" class="fixed w-full z-30 top-0 text-white">
+      <div
+        id="header"
+        class={cc([
+          "fixed w-full z-30 top-0 transition-colors",
+          scrolled() ? "shadow-md bg-white text-black" : "text-white",
+        ])}
+      >
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-          <div class="pl-4 flex items-center">
+          <div class="pl-3 flex items-center">
             <a
-              class="toggleColour uppercase text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+              class="uppercase no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
               href="#"
             >
               Solid DnD
@@ -40,7 +64,7 @@ export default function About(props) {
             </button>
           </div>
           <nav
-            class="w-full flex-grow justify-end lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+            class="w-full flex-grow justify-end lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent p-4 lg:p-0 z-20"
             id="nav-content"
           >
             <NavLink href="#">Features</NavLink>
@@ -49,31 +73,30 @@ export default function About(props) {
           </nav>
         </div>
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-      </nav>
+      </div>
 
-      <div class="pt-24">
-        <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center max-w-screen-xl">
-          <div class="flex flex-col w-full md:w-3/5 justify-center items-start text-center md:text-left">
-            <h1 class="my-4 text-8xl font-black leading-tight uppercase whitespace-nowrap">
-              Solid DnD
-            </h1>
-            <p class="leading-normal text-2xl mb-8">
-              A lightweight drag and drop toolkit for&nbsp;
-              <a href="https://solidjs.com/">Solid</a>.
-            </p>
-            <div class="flex space-x-6">
-              <button class="hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                npm install @thisbeyond/solid-dnd
-              </button>
-            </div>
-          </div>
-
-          <div class="w-full md:w-2/5 py-6 text-center">
-            <Demo />
+      <div class="pt-34 container px-3 mx-auto flex flex-wrap flex-col md:flex-row">
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-center md:items-start md:text-left">
+          <h1 class="my-4 text-5xl font-bold leading-tight">
+            Drag 'till you drop.
+          </h1>
+          <p class="leading-normal text-2xl mb-8">
+            A lightweight, performant, extensible drag and drop toolkit
+            for&nbsp;
+            <a href="https://solidjs.com/">Solid</a>.
+          </p>
+          <div class="flex space-x-6">
+            <button class="hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              npm install @thisbeyond/solid-dnd
+            </button>
           </div>
         </div>
+
+        <div class="w-full md:w-3/5 py-6 text-center flex flex-1">
+          <Demo />
+        </div>
       </div>
-      <div class="relative -mt-12 lg:-mt-24">
+      <div class="relative -mt-2 lg:-mt-6">
         <svg
           viewBox="0 0 1428 174"
           version="1.1"
@@ -113,7 +136,7 @@ export default function About(props) {
       <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
           <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Title
+            Features
           </h1>
           <div class="w-full mb-4">
             <div class="h-1 mx-auto bg-gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>

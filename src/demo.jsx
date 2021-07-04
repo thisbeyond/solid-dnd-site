@@ -6,6 +6,7 @@ import {
   createDroppable,
   transformStyle,
 } from "@thisbeyond/solid-dnd";
+import cc from "classcat";
 
 const Draggable = (props) => {
   const draggable = createDraggable({ id: props.id });
@@ -35,29 +36,15 @@ const Draggable = (props) => {
 
 const Droppable = () => {
   const droppable = createDroppable({ id: "1" });
-  const shadow = () => {
-    return `
-      inset 
-      rgba(${
-        droppable.isActiveDroppable() ? 0 : 201
-      }, 211, 219, 0.5) 0 0 0 3px, 
-      rgba(255, 255, 255, 0) 0 0 0 1px, 
-      rgba(201, 211, 219, 0.25) 20px 14px 24px
-    `;
-  };
-  const style = () => ({
-    display: "flex",
-    "flex-direction": "column",
-    "align-items": "center",
-    "justify-content": "center",
-    background: "white",
-    "border-radius": "10px",
-    width: "300px",
-    height: "300px",
-    "box-shadow": shadow(),
-  });
+
   return (
-    <div {...droppable} style={style()}>
+    <div
+      {...droppable}
+      class={cc([
+        "flex items-center justify-center w-3/5 border-3 border-dashed rounded-lg",
+        droppable.isActiveDroppable() ? "shadow-inner-lg" : "",
+      ])}
+    >
       Drop here.
     </div>
   );
@@ -78,6 +65,7 @@ const Sandbox = () => {
     <div
       style={{
         display: "flex",
+        flex: 1,
         "align-items": "space-around",
         "justify-content": "center",
         "font-weight": "bold",
@@ -89,7 +77,6 @@ const Sandbox = () => {
           display: "flex",
           "flex-direction": "column",
           "padding-top": "50px",
-          width: "300px",
         }}
       >
         <Draggable id={"1"} />
