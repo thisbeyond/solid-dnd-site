@@ -8,6 +8,31 @@ import {
 } from "@thisbeyond/solid-dnd";
 import cc from "classcat";
 
+export const Hero = () => {
+  return (
+    <div class="pt-34 px-20 container mx-auto flex flex-wrap flex-col lg:flex-row">
+      <div class="flex-1 flex flex-col w-full justify-center items-center text-center lg:items-start lg:text-left">
+        <h1 class="mb-6 lg:my-4 text-3xl sm:text-5xl font-bold leading-tight sm:whitespace-nowrap">
+          Drag 'till you drop.
+        </h1>
+        <p class="leading-normal text-xl sm:text-2xl mb-8">
+          A lightweight, performant, extensible drag and drop toolkit for&nbsp;
+          <a href="https://solidjs.com/">Solid</a>.
+        </p>
+        <div class="flex space-x-6">
+          <div class="text-sm sm:text-base whitespace-nowrap cursor-move bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg transform transition hover:scale-105 duration-300 ease-in-out">
+            Go on, drag me!
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full py-6 text-center flex flex-1">
+        <Demo />
+      </div>
+    </div>
+  );
+};
+
 const Draggable = (props) => {
   const draggable = createDraggable({ id: props.id });
 

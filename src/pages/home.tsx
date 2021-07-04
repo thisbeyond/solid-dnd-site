@@ -1,5 +1,3 @@
-import { Demo } from "../demo";
-
 const NavLink = (props) => {
   return (
     <a class="p-4 hover:text-blue-500 font-normal text-xl" href={props.href}>
