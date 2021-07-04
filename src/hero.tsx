@@ -38,23 +38,25 @@ const Draggable = (props) => {
 
   const style = () => {
     return {
-      margin: "20px 40px",
-      cursor: "move",
-      color: "white",
-      background: "black",
-      "border-radius": "5px",
-      padding: "16px 32px",
-      width: "max-content",
-      "box-shadow": draggable.isActiveDraggable()
-        ? "-1px 0 15px 0 rgba(34, 33, 81, 0.01), 0px 15px 15px 0 rgba(34, 33, 81, 0.25)"
-        : null,
       "z-index": draggable.isActiveDraggable() ? "1" : null,
       ...transformStyle({ translate: draggable.translate }),
     };
   };
+  const innerStyle = () => {
+    return {
+      "box-shadow": draggable.isActiveDraggable()
+        ? "-1px 0 15px 0 rgba(34, 33, 81, 0.01), 0px 15px 15px 0 rgba(34, 33, 81, 0.25)"
+        : null,
+    };
+  };
   return (
     <div ref={draggable.ref} {...draggable.dragActivators} style={style()}>
-      {`Drag me!`}
+      <div
+        class="w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg transform transition hover:scale-105"
+        style={innerStyle()}
+      >
+        Go on, drag me!
+      </div>
     </div>
   );
 };
