@@ -5,16 +5,20 @@ import {
   createDroppable,
 } from "@thisbeyond/solid-dnd";
 import cc from "classcat";
+import { createSignal } from "solid-js";
 
 export const Hero = () => {
   let draggablesContainer;
+  const [inDropZone, setInDropZone] = createSignal(false);
 
   const onDragEnd = ({ draggable, droppable }) => {
     if (droppable) {
       const child = droppable.node.children[0];
       droppable.node.insertBefore(draggable.node, child);
+      setInDropZone(true);
     } else if (draggable.node.parentElement !== draggablesContainer) {
       draggablesContainer.append(draggable.node);
+      setInDropZone(false);
     }
   };
 
@@ -52,7 +56,14 @@ export const Hero = () => {
           </div>
 
           <div class="py-6 lg:px-10 justify-center flex flex-1 min-h-15rem">
-            <Droppable id={1} />
+            <Droppable
+              id={1}
+              label={
+                inDropZone()
+                  ? "Nice one! You can drag it out again too."
+                  : "Drop here."
+              }
+            />
           </div>
         </div>
       </DragDropSensors>
@@ -90,7 +101,7 @@ const Droppable = (props) => {
         droppable.isActiveDroppable ? "shadow-inner-lg" : "",
       ])}
     >
-      <span class="py-3">Drop here.</span>
+      <span class="py-3">{props.label}</span>
     </div>
   );
 };
