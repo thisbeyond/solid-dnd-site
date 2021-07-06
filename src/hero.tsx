@@ -71,6 +71,7 @@ const Draggable = (props) => {
           "transform transition hover:scale-105",
           draggable.isActiveDraggable ? "shadow-2xl z-50" : "shadow-md z-10",
         ])}
+        style={{ "touch-action": "none" }}
       >
         Go on, drag me!
       </div>
