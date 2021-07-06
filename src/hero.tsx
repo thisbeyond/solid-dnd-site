@@ -1,7 +1,6 @@
 import {
   DragDropContext,
   DragDropSensors,
-  useDragDropContext,
   createDraggable,
   createDroppable,
 } from "@thisbeyond/solid-dnd";
@@ -12,7 +11,8 @@ export const Hero = () => {
 
   const onDragEnd = ({ draggable, droppable }) => {
     if (droppable) {
-      droppable.node.append(draggable.node);
+      const child = droppable.node.children[0];
+      droppable.node.insertBefore(draggable.node, child);
     } else if (draggable.node.parentElement !== draggablesContainer) {
       draggablesContainer.append(draggable.node);
     }
@@ -46,7 +46,7 @@ export const Hero = () => {
               for&nbsp;
               <a href="https://solidjs.com/">Solid</a>.
             </p>
-            <div ref={draggablesContainer} class="flex min-h-30">
+            <div ref={draggablesContainer} class="flex min-h-15 lg:min-h-30">
               <Draggable id={1} />
             </div>
           </div>
@@ -63,11 +63,11 @@ export const Hero = () => {
 const Draggable = (props) => {
   const draggable = createDraggable({ id: props.id });
   return (
-    <div use:draggable>
+    <div use:draggable class="h-min">
       <div
         class={cc([
           "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-white",
-          "text-gray-800 font-bold rounded-full my-6 py-4 px-8",
+          "text-gray-800 font-bold rounded-full py-4 px-8",
           "transform transition hover:scale-105",
           draggable.isActiveDraggable ? "shadow-2xl z-50" : "shadow-md z-10",
         ])}
@@ -90,7 +90,7 @@ const Droppable = (props) => {
         droppable.isActiveDroppable ? "shadow-inner-lg" : "",
       ])}
     >
-      Drop here.
+      <span class="py-3">Drop here.</span>
     </div>
   );
 };
