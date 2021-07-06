@@ -74,13 +74,16 @@ export const Hero = () => {
 const Draggable = (props) => {
   const draggable = createDraggable({ id: props.id });
   return (
-    <div use:draggable class="h-min">
+    <div
+      use:draggable
+      class={cc(["h-min", draggable.isActiveDraggable && "z-40"])}
+    >
       <div
         class={cc([
           "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-white",
           "text-gray-800 font-bold rounded-full py-4 px-8",
           "transform transition hover:scale-105",
-          draggable.isActiveDraggable ? "shadow-2xl z-50" : "shadow-md z-10",
+          draggable.isActiveDraggable ? "shadow-2xl" : "shadow-md",
         ])}
         style={{ "touch-action": "none" }}
       >
