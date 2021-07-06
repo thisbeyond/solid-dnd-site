@@ -27,8 +27,8 @@ export const Hero = () => {
       <DragDropSensors>
         <div
           class={
-            "pt-34 px-8 sm:px-20 container mx-auto flex flex-wrap flex-col " +
-            "lg:flex-row"
+            "pt-25 sm:pt-34 px-8 sm:px-20 container mx-auto flex flex-wrap " +
+            "flex-col lg:flex-row"
           }
         >
           <div
@@ -39,13 +39,13 @@ export const Hero = () => {
           >
             <h1
               class={
-                "mb-6 lg:my-4 text-3xl sm:text-5xl font-bold leading-tight " +
+                "mb-6 lg:my-4 text-5xl font-bold leading-tight " +
                 "sm:whitespace-nowrap"
               }
             >
               Drag 'till you drop.
             </h1>
-            <p class="leading-normal text-xl sm:text-2xl mb-8">
+            <p class="leading-normal text-2xl mb-8">
               A lightweight, performant, extensible drag and drop toolkit
               for&nbsp;
               <a href="https://solidjs.com/">Solid</a>.
@@ -59,9 +59,15 @@ export const Hero = () => {
             <Droppable
               id={1}
               label={
-                inDropZone()
-                  ? "Nice one! You can drag it out again too."
-                  : "Drop here."
+                inDropZone() ? (
+                  <>
+                    Nice one!
+                    <br />
+                    You can drag it out again too.
+                  </>
+                ) : (
+                  "Drop here."
+                )
               }
             />
           </div>
@@ -99,7 +105,7 @@ const Droppable = (props) => {
     <div
       use:droppable
       class={cc([
-        "flex-1 flex flex-col items-center justify-center",
+        "flex-1 flex flex-col items-center justify-center text-center",
         "border-3 border-dashed rounded-lg",
         droppable.isActiveDroppable ? "shadow-inner-lg" : "",
       ])}
