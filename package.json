@@ -14,9 +14,10 @@
     "vite-plugin-windicss": "^1.1.1"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.4.5",
+    "@fontsource/jetbrains-mono": "^4.5.0",
     "@fontsource/poppins": "^4.4.5",
     "classcat": "^5.0.3",
+    "prismjs": "^1.24.1",
     "solid-app-router": "^0.0.50",
     "solid-js": "^1.0.0"
   }

@@ -48,7 +48,13 @@ export const Hero = () => {
             <p class="leading-normal text-2xl mb-8">
               A lightweight, performant, extensible drag and drop toolkit
               for&nbsp;
-              <a href="https://solidjs.com/">Solid</a>.
+              <a
+                href="https://solidjs.com/"
+                class="text-blue-gray-300 hover:underline"
+              >
+                Solid
+              </a>
+              .
             </p>
             <div ref={draggablesContainer} class="flex min-h-15 lg:min-h-30">
               <Draggable id={1} />

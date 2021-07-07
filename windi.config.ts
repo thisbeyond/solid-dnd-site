@@ -4,7 +4,8 @@ export default defineConfig({
   darkMode: false,
   theme: {
     fontFamily: {
-      sans: ["Poppins", "Inter", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
+      mono: ["Jetbrains Mono", "monospace"],
     },
     extend: {
       colors: {
