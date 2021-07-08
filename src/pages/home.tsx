@@ -4,8 +4,10 @@ import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
 import { Example, ExampleCode, ExampleDemo } from "../example";
 import { SimpleDragAndDrop } from "../examples/simple-drag-and-drop";
+import { SortableList } from "../examples/sortable-list";
 
-import example1String from "../examples/simple-drag-and-drop?raw";
+import simpleDragAndDropString from "../examples/simple-drag-and-drop?raw";
+import sortableListString from "../examples/sortable-list?raw";
 
 const Home = () => {
   return (
@@ -44,12 +46,18 @@ const Home = () => {
       <section id="examples" class="bg-gray-100 py-8">
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
-          <div class="space-y-10">
+          <div class="space-y-14">
             <Example title="Simple drag & drop">
               <ExampleDemo>
                 <SimpleDragAndDrop />
               </ExampleDemo>
-              <ExampleCode code={example1String} />
+              <ExampleCode code={simpleDragAndDropString} />
+            </Example>
+            <Example title="Sortable list">
+              <ExampleDemo>
+                <SortableList />
+              </ExampleDemo>
+              <ExampleCode code={sortableListString} />
             </Example>
           </div>
         </div>
