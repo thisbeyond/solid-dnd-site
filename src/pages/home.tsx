@@ -45,8 +45,8 @@ const Home = () => {
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-10">
-            <Example>
-              <ExampleCode title="Simple drag & drop" code={example1String} />
+            <Example title="Simple drag & drop">
+              <ExampleCode code={example1String} />
               <ExampleDemo>
                 <SimpleDragAndDrop />
               </ExampleDemo>
