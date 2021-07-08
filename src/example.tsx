@@ -39,7 +39,7 @@ export const ExampleDemo = (props) => {
   return (
     <div
       class={
-        "w-full lg:flex-1 flex justify-center items-center overflow-hidden" +
+        "w-full lg:flex-1 flex justify-center items-center overflow-hidden " +
         "border-3 border-dashed rounded-lg p-3"
       }
     >
