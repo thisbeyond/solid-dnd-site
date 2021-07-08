@@ -34,9 +34,9 @@ function Nav() {
         "p-4 md:p-0 z-20"
       }
     >
-      <NavLink href="#">Features</NavLink>
-      <NavLink href="#">Examples</NavLink>
-      <NavLink href="#">Get it</NavLink>
+      <NavLink href="#features">Features</NavLink>
+      <NavLink href="#examples">Examples</NavLink>
+      <NavLink href="#get-it">Get it</NavLink>
     </nav>
   );
 }

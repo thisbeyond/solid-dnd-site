@@ -12,7 +12,7 @@ const Home = () => {
     <div class="leading-normal tracking-normal text-white ">
       <Header />
 
-      <section class="bg-white border-b py-8">
+      <section id="features" class="bg-white border-b py-8">
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Features</SectionHeading>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-8">
@@ -41,7 +41,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section class="bg-gray-100 py-8">
+      <section id="examples" class="bg-gray-100 py-8">
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-10">
@@ -56,7 +56,7 @@ const Home = () => {
       </section>
       <footer class="bg-gradient">
         <WaveFooter />
-        <section class="container mx-auto text-center p-6 pb-12">
+        <section id="get-it" class="container mx-auto text-center p-6 pb-12">
           <SectionHeading variant="light">Get it</SectionHeading>
           <h3 class="mb-4 text-2xl leading-tight">
             Install with NPM (or check out the code on{" "}
