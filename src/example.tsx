@@ -26,7 +26,7 @@ export const ExampleCode = (props) => {
       <pre
         class={
           "text-sm text-white bg-gray-800 rounded-lg p-6 " +
-          "whitespace-pre-wrap overflow-auto max-h-175"
+          "whitespace-pre-wrap overflow-auto max-h-[80vh]"
         }
       >
         <code class="inline-block min-w-100" innerHTML={highlightedCode} />
@@ -39,8 +39,8 @@ export const ExampleDemo = (props) => {
   return (
     <div
       class={
-        "w-full lg:flex-1 flex justify-center items-center overflow-hidden " +
-        "border-3 border-dashed rounded-lg p-3"
+        "w-full lg:flex-1 flex flex-col justify-center items-center gap-5 " +
+        "overflow-hidden border-3 border-dashed rounded-lg p-3 relative"
       }
     >
       {props.children}

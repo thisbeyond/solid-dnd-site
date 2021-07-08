@@ -94,10 +94,9 @@ const Draggable = (props) => {
         class={cc([
           "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-white",
           "text-gray-800 font-bold rounded-full py-4 px-8",
-          "transform transition hover:scale-105",
+          "touch-none transform transition hover:scale-105",
           draggable.isActiveDraggable ? "shadow-2xl" : "shadow-md",
         ])}
-        style={{ "touch-action": "none" }}
       >
         Go on, drag me!
       </div>

@@ -46,14 +46,10 @@ const Home = () => {
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-10">
             <Example title="Simple drag & drop">
-              <ExampleCode code={example1String} />
               <ExampleDemo>
                 <SimpleDragAndDrop />
               </ExampleDemo>
-            </Example>
-            <Example reverse>
-              <ExampleCode title="Sortable list" code={"some code"} />
-              <ExampleDemo />
+              <ExampleCode code={example1String} />
             </Example>
           </div>
         </div>
