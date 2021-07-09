@@ -4,9 +4,11 @@ import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
 import { Example, ExampleCode, ExampleDemo } from "../example";
 import { BasicDragAndDrop } from "../examples/basic-drag-and-drop";
+import { DragOverlayExample } from "../examples/drag-overlay-example";
 import { SortableList } from "../examples/sortable-list";
 import { ConditionalDrop } from "../examples/conditional-drop";
 import simpleDragAndDropString from "../examples/basic-drag-and-drop?raw";
+import dragOverlayString from "../examples/drag-overlay-example?raw";
 import conditionalDropString from "../examples/conditional-drop?raw";
 import sortableListString from "../examples/sortable-list?raw";
 
@@ -54,17 +56,17 @@ const Home = () => {
               </ExampleDemo>
               <ExampleCode code={simpleDragAndDropString} />
             </Example>
+            <Example title="Drag overlay">
+              <ExampleDemo>
+                <DragOverlayExample />
+              </ExampleDemo>
+              <ExampleCode code={dragOverlayString} />
+            </Example>
             <Example title="Conditional drop">
               <ExampleDemo>
                 <ConditionalDrop />
               </ExampleDemo>
               <ExampleCode code={conditionalDropString} />
-            </Example>
-            <Example title="Drag overlay">
-              <ExampleDemo>
-                <SortableList />
-              </ExampleDemo>
-              <ExampleCode code={sortableListString} />
             </Example>
             <Example title="Sortable list">
               <ExampleDemo>
