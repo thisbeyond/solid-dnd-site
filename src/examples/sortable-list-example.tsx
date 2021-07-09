@@ -4,7 +4,7 @@ import {
   createSortable,
 } from "@thisbeyond/solid-dnd";
 
-export const SortableList = () => {
+export const SortableListExample = () => {
   return (
     <DragDropContext>
       <DragDropSensors />

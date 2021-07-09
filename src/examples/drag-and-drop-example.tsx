@@ -27,7 +27,7 @@ const Droppable = () => {
   );
 };
 
-export const BasicDragAndDrop = () => {
+export const DragAndDropExample = () => {
   let ref;
 
   const onDragEnd = ({ draggable, droppable }) => {

@@ -46,7 +46,7 @@ const Droppable = (props) => {
   );
 };
 
-export const ConditionalDrop = () => {
+export const ConditionalDropExample = () => {
   let ref;
 
   const onDragEnd = ({ draggable, droppable }) => {

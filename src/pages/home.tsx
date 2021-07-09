@@ -3,14 +3,14 @@ import { Header } from "../header";
 import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
 import { Example, ExampleCode, ExampleDemo } from "../example";
-import { BasicDragAndDrop } from "../examples/basic-drag-and-drop";
+import { DragAndDropExample } from "../examples/drag-and-drop-example";
 import { DragOverlayExample } from "../examples/drag-overlay-example";
-import { SortableList } from "../examples/sortable-list";
-import { ConditionalDrop } from "../examples/conditional-drop";
-import simpleDragAndDropString from "../examples/basic-drag-and-drop?raw";
+import { SortableListExample } from "../examples/sortable-list-example";
+import { ConditionalDropExample } from "../examples/conditional-drop-example";
+import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
-import conditionalDropString from "../examples/conditional-drop?raw";
-import sortableListString from "../examples/sortable-list?raw";
+import conditionalDropString from "../examples/conditional-drop-example?raw";
+import sortableListString from "../examples/sortable-list-example?raw";
 
 const Home = () => {
   return (
@@ -52,9 +52,9 @@ const Home = () => {
           <div class="space-y-14">
             <Example title="Basic drag & drop">
               <ExampleDemo>
-                <BasicDragAndDrop />
+                <DragAndDropExample />
               </ExampleDemo>
-              <ExampleCode code={simpleDragAndDropString} />
+              <ExampleCode code={dragAndDropString} />
             </Example>
             <Example title="Drag overlay">
               <ExampleDemo>
@@ -64,13 +64,13 @@ const Home = () => {
             </Example>
             <Example title="Conditional drop">
               <ExampleDemo>
-                <ConditionalDrop />
+                <ConditionalDropExample />
               </ExampleDemo>
               <ExampleCode code={conditionalDropString} />
             </Example>
             <Example title="Sortable list">
               <ExampleDemo>
-                <SortableList />
+                <SortableListExample />
               </ExampleDemo>
               <ExampleCode code={sortableListString} />
             </Example>
