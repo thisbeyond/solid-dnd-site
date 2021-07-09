@@ -22,11 +22,11 @@ export const Example = (props) => {
 export const ExampleCode = (props) => {
   const highlightedCode = highlight(props.code);
   return (
-    <div class="w-full lg:flex-1">
+    <div class="w-full lg:flex-1 lg:max-w-1/2">
       <pre
         class={
           "text-sm text-white bg-gray-800 rounded-lg p-6 " +
-          "whitespace-pre-wrap overflow-auto max-h-[80vh]"
+          "overflow-auto max-h-[80vh]"
         }
       >
         <code class="inline-block min-w-100" innerHTML={highlightedCode} />
@@ -40,7 +40,7 @@ export const ExampleDemo = (props) => {
     <div
       class={
         "w-full lg:flex-1 flex flex-col justify-center items-center gap-5 " +
-        "overflow-hidden border-3 border-dashed rounded-lg p-3 relative"
+        "overflow-hidden border-3 border-dashed rounded-lg p-6 relative"
       }
     >
       {props.children}

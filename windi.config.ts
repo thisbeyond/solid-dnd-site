@@ -34,10 +34,12 @@ export default defineConfig({
   shortcuts: {
     draggable:
       "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-secondary " +
-      "text-white font-bold rounded-full py-4 px-8 shadow-lg touch-none",
+      "text-white font-bold rounded-full p-4 shadow-lg touch-none",
     droppable:
-      "flex flex-col items-center justify-center text-center w-3/4 h-1/2 " +
-      "min-h-30 bg-white shadow-inner border border-gray-200 rounded-lg gap-5",
-    "droppable-active": "border-blue-200 bg-blue-50",
+      "flex-1 flex flex-col gap-5 w-3/4 h-1/2 min-h-30 p-6 " +
+      "items-center justify-center text-center " +
+      "bg-white shadow-inner border border-gray-200 rounded-lg ",
+    "droppable-accept": "border-blue-200 bg-blue-50",
+    "droppable-reject": "border-red-200 bg-red-50",
   },
 });

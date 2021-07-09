@@ -3,10 +3,11 @@ import { Header } from "../header";
 import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
 import { Example, ExampleCode, ExampleDemo } from "../example";
-import { SimpleDragAndDrop } from "../examples/simple-drag-and-drop";
+import { BasicDragAndDrop } from "../examples/basic-drag-and-drop";
 import { SortableList } from "../examples/sortable-list";
-
-import simpleDragAndDropString from "../examples/simple-drag-and-drop?raw";
+import { ConditionalDrop } from "../examples/conditional-drop";
+import simpleDragAndDropString from "../examples/basic-drag-and-drop?raw";
+import conditionalDropString from "../examples/conditional-drop?raw";
 import sortableListString from "../examples/sortable-list?raw";
 
 const Home = () => {
@@ -47,11 +48,23 @@ const Home = () => {
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-14">
-            <Example title="Simple drag & drop">
+            <Example title="Basic drag & drop">
               <ExampleDemo>
-                <SimpleDragAndDrop />
+                <BasicDragAndDrop />
               </ExampleDemo>
               <ExampleCode code={simpleDragAndDropString} />
+            </Example>
+            <Example title="Conditional drop">
+              <ExampleDemo>
+                <ConditionalDrop />
+              </ExampleDemo>
+              <ExampleCode code={conditionalDropString} />
+            </Example>
+            <Example title="Drag overlay">
+              <ExampleDemo>
+                <SortableList />
+              </ExampleDemo>
+              <ExampleCode code={sortableListString} />
             </Example>
             <Example title="Sortable list">
               <ExampleDemo>

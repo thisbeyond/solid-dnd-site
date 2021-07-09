@@ -1,0 +1,73 @@
+import {
+  DragDropContext,
+  useDragDropContext,
+  DragDropSensors,
+  createDraggable,
+  createDroppable,
+} from "@thisbeyond/solid-dnd";
+
+const Draggable = (props) => {
+  const draggable = createDraggable({
+    id: props.id,
+    data: { type: props.type },
+  });
+  return (
+    <div use:draggable class="draggable">
+      {`Draggable type '${props.type}'`}
+    </div>
+  );
+};
+
+const Droppable = (props) => {
+  const droppable = createDroppable({
+    id: props.id,
+    data: { type: props.type },
+  });
+
+  const [, { activeDraggable }] = useDragDropContext();
+
+  const activeClass = () => {
+    if (droppable.isActiveDroppable) {
+      if (activeDraggable().data.type === props.type) {
+        return "!droppable-accept";
+      } else {
+        return "!droppable-reject";
+      }
+    }
+    return "";
+  };
+
+  return (
+    <div use:droppable class={`droppable ${activeClass()}`}>
+      Droppable
+      <br />
+      {`accepts type '${props.type}'`}
+    </div>
+  );
+};
+
+export const ConditionalDrop = () => {
+  let ref;
+
+  const onDragEnd = ({ draggable, droppable }) => {
+    if (droppable) {
+      if (draggable.data.type === droppable.data.type) {
+        droppable.node.append(draggable.node);
+      }
+    } else {
+      ref.append(draggable.node);
+    }
+  };
+
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropSensors />
+      <div ref={ref} class="min-h-15 flex flex-wrap gap-5 justify-center">
+        <Draggable id={1} type="a" />
+        <Draggable id={2} type="b" />
+      </div>
+      <Droppable id={1} type="a" />
+      <Droppable id={2} type="b" />
+    </DragDropContext>
+  );
+};

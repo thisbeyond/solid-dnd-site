@@ -20,14 +20,14 @@ const Droppable = () => {
     <div
       use:droppable
       class="droppable"
-      classList={{ "!droppable-active": droppable.isActiveDroppable }}
+      classList={{ "!droppable-accept": droppable.isActiveDroppable }}
     >
       Droppable.
     </div>
   );
 };
 
-export const SimpleDragAndDrop = () => {
+export const BasicDragAndDrop = () => {
   let ref;
 
   const onDragEnd = ({ draggable, droppable }) => {
