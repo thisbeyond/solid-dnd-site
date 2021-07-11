@@ -10,7 +10,7 @@ const Draggable = () => {
   const draggable = createDraggable({ id: 1 });
   return (
     <div
-      use:draggable={{ transform: false }}
+      use:draggable
       class="draggable"
       classList={{ "opacity-25": draggable.isActiveDraggable }}
     >
