@@ -11,6 +11,7 @@ import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
 import conditionalDropString from "../examples/conditional-drop-example?raw";
 import sortableListString from "../examples/sortable-list-example?raw";
+import { InstallButton } from "../install-button";
 
 const Home = () => {
   return (
@@ -83,21 +84,15 @@ const Home = () => {
           <SectionHeading variant="light">Get it</SectionHeading>
           <h3 class="mb-4 text-2xl leading-tight">
             Install with NPM (or check out the code on{" "}
-            <a class="hover:underline text-blue-gray-300" href="">
+            <a
+              class="hover:underline text-blue-gray-300"
+              href="https://github.com/thisbeyond/solid-dnd"
+            >
               Github
             </a>
             )
           </h3>
-          <button
-            class={
-              "mx-auto lg:mx-0 hover:underline bg-white text-gray-800 " +
-              "font-bold rounded-full my-6 py-4 px-8 shadow-lg " +
-              "focus:outline-none focus:shadow-outline transform transition " +
-              "hover:scale-105 duration-300 ease-in-out"
-            }
-          >
-            npm install @thisbeyond/solid-dnd
-          </button>
+          <InstallButton />
         </section>
       </footer>
     </div>
