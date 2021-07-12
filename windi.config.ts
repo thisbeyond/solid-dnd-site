@@ -38,8 +38,11 @@ export default defineConfig({
     droppable:
       "flex-1 flex flex-col gap-5 w-3/4 h-1/2 min-h-30 p-6 " +
       "items-center justify-center text-center " +
-      "bg-white shadow-inner border border-gray-200 rounded-lg ",
+      "bg-white shadow-inner border border-gray-200 rounded-lg",
     "droppable-accept": "border-blue-200 bg-blue-50",
     "droppable-reject": "border-red-200 bg-red-50",
+    sortable:
+      "bg-secondary text-white font-bold rounded-lg shadow p-4 min-w-20vw " +
+      "whitespace-nowrap cursor-move touch-none",
   },
 });
