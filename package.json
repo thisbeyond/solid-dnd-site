@@ -17,6 +17,7 @@
     "@amoutonbrady/solid-heroicons": "^0.8.0",
     "@fontsource/jetbrains-mono": "^4.5.0",
     "@fontsource/poppins": "^4.4.5",
+    "@thisbeyond/solid-dnd": "^0.2.0",
     "classcat": "^5.0.3",
     "prismjs": "^1.24.1",
     "solid-app-router": "^0.0.50",
