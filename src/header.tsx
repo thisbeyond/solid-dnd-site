@@ -4,7 +4,7 @@ import { Hero } from "./hero";
 import { WaveHeader } from "./wave-header";
 import { createEffect, createSignal, onCleanup } from "solid-js";
 
-function NavMenuButton() {
+function NavMenuButton(props) {
   return (
     <button
       class={
@@ -12,6 +12,13 @@ function NavMenuButton() {
         "focus:outline-none focus:shadow-outline " +
         "transform transition hover:scale-105 duration-300 ease-in-out"
       }
+      onClick={() => {
+        if (props.menuActive()) {
+          props.setMenuActive(false);
+        } else {
+          props.setMenuActive(true);
+        }
+      }}
     >
       <svg
         class="fill-current h-6 w-6"
@@ -25,24 +32,40 @@ function NavMenuButton() {
   );
 }
 
-function Nav() {
+function Nav(props) {
+  const onClick = () => props.setMenuActive(false);
   return (
     <nav
-      class={
-        "w-full flex-grow justify-end md:flex md:items-center " +
-        "md:w-auto hidden mt-2 md:mt-0 bg-white md:bg-transparent " +
-        "p-4 md:p-0 z-20"
-      }
+      class={cc([
+        "md:flex flex-col md:flex-row w-full flex-grow justify-end",
+        "md:items-center",
+        "md:w-auto mt-2 md:mt-0 bg-white md:bg-transparent",
+        "p-4 md:p-0 z-20",
+        props.menuActive() ? "flex" : "hidden",
+      ])}
     >
-      <NavLink href="#features">Features</NavLink>
-      <NavLink href="#examples">Examples</NavLink>
-      <NavLink href="#get-it">Get it</NavLink>
+      <NavLink href="#features" onClick={onClick}>
+        Features
+      </NavLink>
+      <NavLink href="#examples" onClick={onClick}>
+        Examples
+      </NavLink>
+      <NavLink href="#get-it" onClick={onClick}>
+        Get it
+      </NavLink>
     </nav>
   );
 }
 
 export function Header() {
   const [scrolled, setScrolled] = createSignal(false);
+  const [menuActive, setMenuActive] = createSignal(false);
+
+  const headerStyle = () => {
+    return scrolled() || menuActive()
+      ? "shadow-md bg-white text-black"
+      : "text-white";
+  };
 
   const onScroll = () => {
     if (window.scrollY > 10) {
@@ -60,10 +83,7 @@ export function Header() {
   return (
     <header class="bg-gradient">
       <div
-        class={cc([
-          "fixed w-full z-30 top-0 transition-colors",
-          scrolled() ? "shadow-md bg-white text-black" : "text-white",
-        ])}
+        class={cc(["fixed w-full z-30 top-0 transition-colors", headerStyle()])}
       >
         <div
           class={
@@ -74,8 +94,11 @@ export function Header() {
           <a class="uppercase font-bold text-2xl lg:text-3xl" href="#">
             Solid DnD
           </a>
-          <NavMenuButton />
-          <Nav />
+          <NavMenuButton
+            menuActive={menuActive}
+            setMenuActive={setMenuActive}
+          />
+          <Nav menuActive={menuActive} setMenuActive={setMenuActive} />
         </div>
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
       </div>
