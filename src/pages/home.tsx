@@ -7,10 +7,14 @@ import { DragAndDropExample } from "../examples/drag-and-drop-example";
 import { DragOverlayExample } from "../examples/drag-overlay-example";
 import { SortableListExample } from "../examples/sortable-list-example";
 import { ConditionalDropExample } from "../examples/conditional-drop-example";
+import { MultipleListsExample } from "../examples/multiple-lists-example";
+import { NestedExample } from "../examples/nested-example";
 import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
 import conditionalDropString from "../examples/conditional-drop-example?raw";
 import sortableListString from "../examples/sortable-list-example?raw";
+import nestedString from "../examples/nested-example?raw";
+import multipleListsString from "../examples/multiple-lists-example?raw";
 import { InstallButton } from "../install-button";
 
 const Home = () => {
@@ -74,6 +78,18 @@ const Home = () => {
                 <SortableListExample />
               </ExampleDemo>
               <ExampleCode code={sortableListString} />
+            </Example>
+            <Example title="Multiple Lists">
+              <ExampleDemo>
+                <MultipleListsExample />
+              </ExampleDemo>
+              <ExampleCode code={multipleListsString} />
+            </Example>
+            <Example title="Nested">
+              <ExampleDemo>
+                <NestedExample />
+              </ExampleDemo>
+              <ExampleCode code={nestedString} />
             </Example>
           </div>
         </div>

@@ -1,0 +1,28 @@
+
+.grab {
+  cursor: grab;
+}
+.item {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  margin: 0.25rem;
+  transition: all 250ms;
+  border-radius: 0.5rem;
+}
+.item .children {
+  margin-top: 1rem;
+}
+.item > .item-droppable {
+  border: 2px solid transparent;
+  transition: all 250ms;
+}
+.item.dropping > .item-droppable {
+  border: 2px solid blue;
+  background: rgba(20, 89, 238, 0.438);
+  padding: 1.25rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+}
+.item.dragging {
+  background: rgba(79, 134, 253, 0.301);
+}
