@@ -1,5 +1,5 @@
 import {
-  DragDropContext,
+  DragDropProvider,
   useDragDropContext,
   DragDropSensors,
   createDraggable,
@@ -7,10 +7,7 @@ import {
 } from "@thisbeyond/solid-dnd";
 
 const Draggable = (props) => {
-  const draggable = createDraggable({
-    id: props.id,
-    data: { type: props.type },
-  });
+  const draggable = createDraggable(props.id, { type: props.type });
   return (
     <div use:draggable class="draggable">
       {`Draggable type '${props.type}'`}
@@ -19,10 +16,7 @@ const Draggable = (props) => {
 };
 
 const Droppable = (props) => {
-  const droppable = createDroppable({
-    id: props.id,
-    data: { type: props.type },
-  });
+  const droppable = createDroppable(props.id, { type: props.type });
 
   const [, { activeDraggable }] = useDragDropContext();
 
@@ -60,7 +54,7 @@ export const ConditionalDropExample = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropProvider onDragEnd={onDragEnd}>
       <DragDropSensors />
       <div ref={ref} class="min-h-15 flex flex-wrap gap-5 justify-center">
         <Draggable id={1} type="a" />
@@ -68,6 +62,6 @@ export const ConditionalDropExample = () => {
       </div>
       <Droppable id={1} type="a" />
       <Droppable id={2} type="b" />
-    </DragDropContext>
+    </DragDropProvider>
   );
 };

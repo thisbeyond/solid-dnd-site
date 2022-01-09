@@ -1,5 +1,5 @@
 import {
-  DragDropContext,
+  DragDropProvider,
   DragDropSensors,
   createDraggable,
   createDroppable,
@@ -23,7 +23,7 @@ export const Hero = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropProvider onDragEnd={onDragEnd}>
       <DragDropSensors>
         <div
           class={
@@ -79,12 +79,12 @@ export const Hero = () => {
           </div>
         </div>
       </DragDropSensors>
-    </DragDropContext>
+    </DragDropProvider>
   );
 };
 
 const Draggable = (props) => {
-  const draggable = createDraggable({ id: props.id });
+  const draggable = createDraggable(props.id);
   return (
     <div
       use:draggable
@@ -105,7 +105,7 @@ const Draggable = (props) => {
 };
 
 const Droppable = (props) => {
-  const droppable = createDroppable({ id: props.id });
+  const droppable = createDroppable(props.id);
   return (
     <div
       use:droppable

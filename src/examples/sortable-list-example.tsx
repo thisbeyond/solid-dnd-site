@@ -1,15 +1,15 @@
 import {
-  DragDropContext,
+  DragDropProvider,
   DragDropSensors,
   DragOverlay,
-  SortableContext,
+  SortableProvider,
   createSortable,
   closestLayoutCenter,
 } from "@thisbeyond/solid-dnd";
 import { createSignal, For } from "solid-js";
 
 const Sortable = (props) => {
-  const sortable = createSortable({ id: props.item });
+  const sortable = createSortable(props.item);
   return (
     <div
       use:sortable
@@ -43,18 +43,18 @@ export const SortableListExample = () => {
   };
 
   return (
-    <DragDropContext
+    <DragDropProvider
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
       collisionDetectionAlgorithm={closestLayoutCenter}
     >
       <DragDropSensors />
-      <SortableContext ids={ids()}>
+      <SortableProvider ids={ids()}>
         <For each={items()}>{(item) => <Sortable item={item} />}</For>
-      </SortableContext>
+      </SortableProvider>
       <DragOverlay>
         <div class="sortable">{`Sortable ${activeItem()}`}</div>
       </DragOverlay>
-    </DragDropContext>
+    </DragDropProvider>
   );
 };

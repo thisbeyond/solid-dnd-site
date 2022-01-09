@@ -1,12 +1,12 @@
 import {
-  DragDropContext,
+  DragDropProvider,
   DragDropSensors,
   createDraggable,
   createDroppable,
 } from "@thisbeyond/solid-dnd";
 
 const Draggable = () => {
-  const draggable = createDraggable({ id: 1 });
+  const draggable = createDraggable(1);
   return (
     <div use:draggable class="draggable">
       Draggable
@@ -15,7 +15,7 @@ const Draggable = () => {
 };
 
 const Droppable = () => {
-  const droppable = createDroppable({ id: 1 });
+  const droppable = createDroppable(1);
   return (
     <div
       use:droppable
@@ -39,12 +39,12 @@ export const DragAndDropExample = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropProvider onDragEnd={onDragEnd}>
       <DragDropSensors />
       <div ref={ref} class="min-h-15">
         <Draggable />
       </div>
       <Droppable />
-    </DragDropContext>
+    </DragDropProvider>
   );
 };
