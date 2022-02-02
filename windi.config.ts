@@ -13,6 +13,7 @@ export default defineConfig({
       colors: {
         primary: "#2c4f7c",
         secondary: "#4f88c6",
+        tertiary: "#aabddf",
       },
       boxShadow: {
         "inner-lg": "inset 0 0 30px 20px rgba(0, 0, 0, 0.2)",
@@ -28,6 +29,12 @@ export default defineConfig({
         ".touch-none": {
           "touch-action": "none",
         },
+        ".rounded-left-full": {
+          "border-radius": "9999px 0px 0px 9999px",
+        },
+        ".rounded-right-full": {
+          "border-radius": "0px 9999px 9999px 0px",
+        },
       });
     }),
   ],
@@ -35,6 +42,13 @@ export default defineConfig({
     draggable:
       "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-secondary " +
       "text-white font-bold rounded-full p-4 shadow-lg touch-none",
+    "draggable-container": "flex items-center shadow-lg rounded-full",
+    handle:
+      "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-tertiary " +
+      "text-white font-bold rounded-right-full py-4 pr-4 pl-2 touch-none",
+    content:
+      "w-max text-sm sm:text-base whitespace-nowrap bg-secondary " +
+      "text-white font-bold rounded-left-full py-4 pl-4 pr-2 touch-none",
     droppable:
       "flex-1 flex flex-col gap-5 w-3/4 h-1/2 min-h-30 p-6 " +
       "items-center justify-center text-center " +
