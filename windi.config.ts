@@ -56,7 +56,9 @@ export default defineConfig({
     "droppable-accept": "border-blue-200 bg-blue-50",
     "droppable-reject": "border-red-200 bg-red-50",
     sortable:
-      "bg-secondary text-white font-bold rounded-lg shadow p-4 min-w-20vw " +
-      "whitespace-nowrap cursor-move touch-none",
+      "bg-secondary text-white font-bold rounded-lg shadow p-4 " +
+      "whitespace-normal cursor-move touch-none text-center",
+    columns: "grid grid-flow-col auto-cols-fr gap-4",
+    column: "flex flex-col gap-4 border border-tertiary p-3",
   },
 });

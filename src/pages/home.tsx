@@ -6,12 +6,14 @@ import { Example, ExampleCode, ExampleDemo } from "../example";
 import { DragAndDropExample } from "../examples/drag-and-drop-example";
 import { DragOverlayExample } from "../examples/drag-overlay-example";
 import { SortableListExample } from "../examples/sortable-list-example";
+import { MultipleListsExample } from "../examples/multiple-lists-example";
 import { ConditionalDropExample } from "../examples/conditional-drop-example";
 import { FineGrainedExample } from "../examples/fine-grained-example";
 import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
 import conditionalDropString from "../examples/conditional-drop-example?raw";
 import sortableListString from "../examples/sortable-list-example?raw";
+import multipleListsString from "../examples/multiple-lists-example?raw";
 import fineGrainedString from "../examples/fine-grained-example?raw";
 import { InstallButton } from "../install-button";
 
@@ -76,6 +78,12 @@ const Home = () => {
                 <SortableListExample />
               </ExampleDemo>
               <ExampleCode code={sortableListString} />
+            </Example>
+            <Example title="Multiple lists">
+              <ExampleDemo>
+                <MultipleListsExample />
+              </ExampleDemo>
+              <ExampleCode code={multipleListsString} />
             </Example>
             <Example title="Fine grained / drag handle">
               <ExampleDemo>
