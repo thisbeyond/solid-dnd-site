@@ -4,7 +4,7 @@ import {
   DragOverlay,
   SortableProvider,
   createSortable,
-  closestLayoutCenter,
+  closestCenter,
 } from "@thisbeyond/solid-dnd";
 import { createSignal, For } from "solid-js";
 
@@ -46,7 +46,7 @@ export const SortableListExample = () => {
     <DragDropProvider
       onDragStart={onDragStart}
       onDragEnd={onDragEnd}
-      collisionDetectionAlgorithm={closestLayoutCenter}
+      collisionDetector={closestCenter}
     >
       <DragDropSensors />
       <SortableProvider ids={ids()}>
