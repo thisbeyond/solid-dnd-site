@@ -62,5 +62,8 @@ export default defineConfig({
     column:
       "grid grid-flow-row auto-cols-fr auto-rows-min " +
       "gap-4 border border-tertiary p-3",
+    "column-header":
+      "bg-white border border-tertiary border-b-0 p-3 text-center font-bold " +
+      "cursor-move",
   },
 });

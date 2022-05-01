@@ -13,6 +13,7 @@ import { SortableHorizontalListExample } from "../examples/sortable-horizontal-l
 import { MultipleListsExample } from "../examples/multiple-lists-example";
 import { ConditionalDropExample } from "../examples/conditional-drop-example";
 import { FineGrainedExample } from "../examples/fine-grained-example";
+import { BoardExample } from "../examples/board-example";
 import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
 import conditionalDropString from "../examples/conditional-drop-example?raw";
@@ -20,6 +21,7 @@ import sortableVerticalListString from "../examples/sortable-vertical-list-examp
 import sortableHorizontalListString from "../examples/sortable-horizontal-list-example?raw";
 import multipleListsString from "../examples/multiple-lists-example?raw";
 import fineGrainedString from "../examples/fine-grained-example?raw";
+import boardString from "../examples/board-example?raw";
 import { InstallButton } from "../install-button";
 
 import "./home.css";
@@ -30,10 +32,11 @@ const Home = () => {
     "Basic drag & drop",
     "Drag overlay",
     "Conditional drop",
+    "Fine grained / drag handle",
     "Sortable list (vertical)",
     "Sortable list (horizontal)",
     "Multiple lists",
-    "Fine grained / drag handle",
+    "Board",
   ];
   const selectProps = createOptions(examples);
 
@@ -111,6 +114,14 @@ const Home = () => {
                 <ExampleCode code={conditionalDropString} />
               </Example>
             </Match>
+            <Match when={example() === "Fine grained / drag handle"}>
+              <Example>
+                <ExampleDemo>
+                  <FineGrainedExample />
+                </ExampleDemo>
+                <ExampleCode code={fineGrainedString} />
+              </Example>
+            </Match>
             <Match when={example() === "Sortable list (vertical)"}>
               <Example>
                 <ExampleDemo>
@@ -135,12 +146,12 @@ const Home = () => {
                 <ExampleCode code={multipleListsString} />
               </Example>
             </Match>
-            <Match when={example() === "Fine grained / drag handle"}>
+            <Match when={example() === "Board"}>
               <Example>
                 <ExampleDemo>
-                  <FineGrainedExample />
+                  <BoardExample />
                 </ExampleDemo>
-                <ExampleCode code={fineGrainedString} />
+                <ExampleCode code={boardString} />
               </Example>
             </Match>
           </Switch>
