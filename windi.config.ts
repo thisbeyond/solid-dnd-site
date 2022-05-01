@@ -59,6 +59,8 @@ export default defineConfig({
       "bg-secondary text-white font-bold rounded-lg shadow p-4 " +
       "whitespace-normal cursor-move touch-none text-center",
     columns: "grid grid-flow-col auto-cols-fr gap-4",
-    column: "flex flex-col gap-4 border border-tertiary p-3",
+    column:
+      "grid grid-flow-row auto-cols-fr auto-rows-min " +
+      "gap-4 border border-tertiary p-3",
   },
 });

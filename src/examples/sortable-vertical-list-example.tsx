@@ -16,12 +16,12 @@ const Sortable = (props) => {
       class="sortable"
       classList={{ "opacity-25": sortable.isActiveDraggable }}
     >
-      {`Sortable ${props.item}`}
+      {props.item}
     </div>
   );
 };
 
-export const SortableListExample = () => {
+export const SortableVerticalListExample = () => {
   const [items, setItems] = createSignal([1, 2, 3]);
   const [activeItem, setActiveItem] = createSignal(null);
   const ids = () => items();
@@ -49,11 +49,13 @@ export const SortableListExample = () => {
       collisionDetector={closestCenter}
     >
       <DragDropSensors />
-      <SortableProvider ids={ids()}>
-        <For each={items()}>{(item) => <Sortable item={item} />}</For>
-      </SortableProvider>
+      <div class="column self-stretch">
+        <SortableProvider ids={ids()}>
+          <For each={items()}>{(item) => <Sortable item={item} />}</For>
+        </SortableProvider>
+      </div>
       <DragOverlay>
-        <div class="sortable">{`Sortable ${activeItem()}`}</div>
+        <div class="sortable">{activeItem()}</div>
       </DragOverlay>
     </DragDropProvider>
   );

@@ -15,10 +15,10 @@ const Sortable = (props) => {
   return (
     <div
       use:sortable
-      class="sortable -xl:text-xs"
+      class="sortable"
       classList={{ "opacity-25": sortable.isActiveDraggable }}
     >
-      {`Sortable ${props.item}`}
+      {props.item}
     </div>
   );
 };
@@ -133,7 +133,7 @@ export const MultipleListsExample = () => {
   };
 
   return (
-    <div class="flex flex-col flex-1 mt-5">
+    <div class="flex flex-col flex-1 mt-5 self-stretch">
       <DragDropProvider
         onDragStart={onDragStart}
         onDragOver={onDragOver}
@@ -147,7 +147,7 @@ export const MultipleListsExample = () => {
           </For>
         </div>
         <DragOverlay>
-          <div class="sortable">{`Sortable ${activeItem()}`}</div>
+          <div class="sortable">{activeItem()}</div>
         </DragOverlay>
       </DragDropProvider>
     </div>
