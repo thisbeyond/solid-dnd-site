@@ -3,18 +3,13 @@ import { highlight } from "./highlighter";
 
 export const Example = (props) => {
   return (
-    <div>
-      <h3 class="text-gray-800 text-3xl font-bold leading-none mb-3">
-        {props.title}
-      </h3>
-      <div
-        class={cc([
-          "flex flex-wrap text-gray-800 gap-8",
-          props.reverse && "flex-row-reverse",
-        ])}
-      >
-        {props.children}
-      </div>
+    <div
+      class={cc([
+        "flex flex-wrap text-gray-800 gap-8",
+        props.reverse && "flex-row-reverse",
+      ])}
+    >
+      {props.children}
     </div>
   );
 };
@@ -26,7 +21,7 @@ export const ExampleCode = (props) => {
       <pre
         class={
           "text-sm text-white bg-gray-800 rounded-lg p-6 " +
-          "overflow-auto max-h-[80vh]"
+          "overflow-auto max-h-[70vh]"
         }
       >
         <code class="inline-block min-w-100" innerHTML={highlightedCode} />

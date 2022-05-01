@@ -1,3 +1,6 @@
+import { createSignal, Match, Switch } from "solid-js";
+import { Select, createOptions } from "@thisbeyond/solid-select";
+
 import { WaveFooter } from "../wave-footer";
 import { Header } from "../header";
 import { FeatureCard } from "../feature-card";
@@ -17,7 +20,20 @@ import multipleListsString from "../examples/multiple-lists-example?raw";
 import fineGrainedString from "../examples/fine-grained-example?raw";
 import { InstallButton } from "../install-button";
 
+import "./home.css";
+
 const Home = () => {
+  const [example, setExample] = createSignal();
+  const examples = [
+    "Basic drag & drop",
+    "Drag overlay",
+    "Conditional drop",
+    "Sortable list",
+    "Multiple lists",
+    "Fine grained / drag handle",
+  ];
+  const selectProps = createOptions(examples);
+
   return (
     <div class="leading-normal tracking-normal text-white ">
       <Header />
@@ -54,44 +70,69 @@ const Home = () => {
       <section id="examples" class="bg-gray-100 py-8">
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
-          <div class="space-y-14">
-            <Example title="Basic drag & drop">
-              <ExampleDemo>
-                <DragAndDropExample />
-              </ExampleDemo>
-              <ExampleCode code={dragAndDropString} />
-            </Example>
-            <Example title="Drag overlay">
-              <ExampleDemo>
-                <DragOverlayExample />
-              </ExampleDemo>
-              <ExampleCode code={dragOverlayString} />
-            </Example>
-            <Example title="Conditional drop">
-              <ExampleDemo>
-                <ConditionalDropExample />
-              </ExampleDemo>
-              <ExampleCode code={conditionalDropString} />
-            </Example>
-            <Example title="Sortable list">
-              <ExampleDemo>
-                <SortableListExample />
-              </ExampleDemo>
-              <ExampleCode code={sortableListString} />
-            </Example>
-            <Example title="Multiple lists">
-              <ExampleDemo>
-                <MultipleListsExample />
-              </ExampleDemo>
-              <ExampleCode code={multipleListsString} />
-            </Example>
-            <Example title="Fine grained / drag handle">
-              <ExampleDemo>
-                <FineGrainedExample />
-              </ExampleDemo>
-              <ExampleCode code={fineGrainedString} />
-            </Example>
-          </div>
+          <Select
+            class="home"
+            placeholder="Select example..."
+            onChange={(value) => setExample(value)}
+            {...selectProps}
+          />
+          <Switch
+            fallback={
+              <Example>
+                <ExampleDemo />
+                <ExampleCode code="\nSelect an example to see the related code.\n " />
+              </Example>
+            }
+          >
+            <Match when={example() === "Basic drag & drop"}>
+              <Example>
+                <ExampleDemo>
+                  <DragAndDropExample />
+                </ExampleDemo>
+                <ExampleCode code={dragAndDropString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Drag overlay"}>
+              <Example>
+                <ExampleDemo>
+                  <DragOverlayExample />
+                </ExampleDemo>
+                <ExampleCode code={dragOverlayString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Conditional drop"}>
+              <Example>
+                <ExampleDemo>
+                  <ConditionalDropExample />
+                </ExampleDemo>
+                <ExampleCode code={conditionalDropString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Sortable list"}>
+              <Example>
+                <ExampleDemo>
+                  <SortableListExample />
+                </ExampleDemo>
+                <ExampleCode code={sortableListString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Multiple lists"}>
+              <Example>
+                <ExampleDemo>
+                  <MultipleListsExample />
+                </ExampleDemo>
+                <ExampleCode code={multipleListsString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Fine grained / drag handle"}>
+              <Example>
+                <ExampleDemo>
+                  <FineGrainedExample />
+                </ExampleDemo>
+                <ExampleCode code={fineGrainedString} />
+              </Example>
+            </Match>
+          </Switch>
         </div>
       </section>
       <footer class="bg-gradient">
