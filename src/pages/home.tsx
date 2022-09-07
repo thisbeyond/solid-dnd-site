@@ -39,7 +39,7 @@ const Home = () => {
     "Drag overlay",
     "Conditional drop",
     "Fine grained / drag handle",
-    "Custom transfomer (limit x-axis)",
+    "Custom transformer (limit x-axis)",
     "Arbitrary drag move",
     "Sortable list (vertical)",
     "Sortable list (horizontal)",
@@ -131,7 +131,7 @@ const Home = () => {
                 <ExampleCode code={fineGrainedString} />
               </Example>
             </Match>
-            <Match when={example() === "Custom transfomer (limit x-axis)"}>
+            <Match when={example() === "Custom transformer (limit x-axis)"}>
               <Example>
                 <ExampleDemo>
                   <ConstrainAxisExample />
