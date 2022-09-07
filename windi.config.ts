@@ -40,8 +40,9 @@ export default defineConfig({
   ],
   shortcuts: {
     draggable:
-      "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-secondary " +
-      "text-white font-bold rounded-full p-4 shadow-lg touch-none",
+      "min-w-max text-sm sm:text-base text-center whitespace-nowrap " +
+      "cursor-move bg-secondary text-white font-bold rounded-full p-4 " +
+      "shadow-lg touch-none",
     "draggable-container": "flex items-center shadow-lg rounded-full",
     handle:
       "w-max text-sm sm:text-base whitespace-nowrap cursor-move bg-tertiary " +

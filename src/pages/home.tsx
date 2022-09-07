@@ -8,20 +8,26 @@ import { SectionHeading } from "../section-heading";
 import { Example, ExampleCode, ExampleDemo } from "../example";
 import { DragAndDropExample } from "../examples/drag-and-drop-example";
 import { DragOverlayExample } from "../examples/drag-overlay-example";
+import { ConstrainAxisExample } from "../examples/constrain-axis-example";
+import { DragMoveExample } from "../examples/drag-move-example";
 import { SortableVerticalListExample } from "../examples/sortable-vertical-list-example";
 import { SortableHorizontalListExample } from "../examples/sortable-horizontal-list-example";
 import { MultipleListsExample } from "../examples/multiple-lists-example";
 import { ConditionalDropExample } from "../examples/conditional-drop-example";
 import { FineGrainedExample } from "../examples/fine-grained-example";
 import { BoardExample } from "../examples/board-example";
+import { DebuggerExample } from "../examples/debugger-example";
 import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
+import constrainAxisString from "../examples/constrain-axis-example?raw";
+import dragMoveString from "../examples/drag-move-example?raw";
 import conditionalDropString from "../examples/conditional-drop-example?raw";
 import sortableVerticalListString from "../examples/sortable-vertical-list-example?raw";
 import sortableHorizontalListString from "../examples/sortable-horizontal-list-example?raw";
 import multipleListsString from "../examples/multiple-lists-example?raw";
 import fineGrainedString from "../examples/fine-grained-example?raw";
 import boardString from "../examples/board-example?raw";
+import debuggerString from "../examples/debugger-example?raw";
 import { InstallButton } from "../install-button";
 
 import "./home.css";
@@ -33,10 +39,13 @@ const Home = () => {
     "Drag overlay",
     "Conditional drop",
     "Fine grained / drag handle",
+    "Custom transfomer (limit x-axis)",
+    "Arbitrary drag move",
     "Sortable list (vertical)",
     "Sortable list (horizontal)",
     "Multiple lists",
     "Board",
+    "Debugger",
   ];
   const selectProps = createOptions(examples);
 
@@ -122,6 +131,22 @@ const Home = () => {
                 <ExampleCode code={fineGrainedString} />
               </Example>
             </Match>
+            <Match when={example() === "Custom transfomer (limit x-axis)"}>
+              <Example>
+                <ExampleDemo>
+                  <ConstrainAxisExample />
+                </ExampleDemo>
+                <ExampleCode code={constrainAxisString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Arbitrary drag move"}>
+              <Example>
+                <ExampleDemo>
+                  <DragMoveExample />
+                </ExampleDemo>
+                <ExampleCode code={dragMoveString} />
+              </Example>
+            </Match>
             <Match when={example() === "Sortable list (vertical)"}>
               <Example>
                 <ExampleDemo>
@@ -152,6 +177,14 @@ const Home = () => {
                   <BoardExample />
                 </ExampleDemo>
                 <ExampleCode code={boardString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Debugger"}>
+              <Example>
+                <ExampleDemo>
+                  <DebuggerExample />
+                </ExampleDemo>
+                <ExampleCode code={debuggerString} />
               </Example>
             </Match>
           </Switch>

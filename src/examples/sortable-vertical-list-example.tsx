@@ -1,3 +1,4 @@
+import { useDragDropContext } from "@thisbeyond/solid-dnd";
 import {
   DragDropProvider,
   DragDropSensors,
@@ -10,11 +11,15 @@ import { createSignal, For } from "solid-js";
 
 const Sortable = (props) => {
   const sortable = createSortable(props.item);
+  const [state] = useDragDropContext();
   return (
     <div
       use:sortable
       class="sortable"
-      classList={{ "opacity-25": sortable.isActiveDraggable }}
+      classList={{
+        "opacity-25": sortable.isActiveDraggable,
+        "transition-transform": !!state.active.draggable,
+      }}
     >
       {props.item}
     </div>
@@ -39,7 +44,6 @@ export const SortableVerticalListExample = () => {
         setItems(updatedItems);
       }
     }
-    setActiveItem(null);
   };
 
   return (

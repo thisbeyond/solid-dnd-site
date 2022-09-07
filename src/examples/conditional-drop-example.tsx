@@ -18,11 +18,11 @@ const Draggable = (props) => {
 const Droppable = (props) => {
   const droppable = createDroppable(props.id, { type: props.type });
 
-  const [, { activeDraggable }] = useDragDropContext();
+  const [state] = useDragDropContext();
 
   const activeClass = () => {
     if (droppable.isActiveDroppable) {
-      if (activeDraggable().data.type === props.type) {
+      if (state.active.draggable?.data.type === props.type) {
         return "!droppable-accept";
       } else {
         return "!droppable-reject";

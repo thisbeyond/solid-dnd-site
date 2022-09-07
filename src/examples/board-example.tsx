@@ -171,7 +171,6 @@ export const BoardExample = () => {
     if (draggable && droppable) {
       move(draggable, droppable, false);
     }
-    setActiveItem(null);
   };
 
   return (

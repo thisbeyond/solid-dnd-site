@@ -4,6 +4,7 @@ import {
   DragOverlay,
   createDraggable,
   createDroppable,
+  DragDropDebugger,
 } from "@thisbeyond/solid-dnd";
 import { createSignal, Show } from "solid-js";
 
@@ -21,45 +22,42 @@ const Draggable = () => {
 };
 
 const Droppable = (props) => {
-  const droppable = createDroppable(1);
+  const droppable = createDroppable(props.id);
   return (
     <div
       use:droppable
       class="droppable"
       classList={{ "!droppable-accept": droppable.isActiveDroppable }}
     >
-      Droppable.
+      Droppable {props.id}
       {props.children}
     </div>
   );
 };
 
-export const DragOverlayExample = () => {
-  const [where, setWhere] = createSignal("outside");
-
-  const onDragEnd = ({ droppable }) => {
-    if (droppable) {
-      setWhere("inside");
-    } else {
-      setWhere("outside");
-    }
-  };
-
+export const DebuggerExample = () => {
+  const [where, setWhere] = createSignal(1);
   return (
-    <DragDropProvider onDragEnd={onDragEnd}>
+    <DragDropProvider
+      onDragEnd={({ droppable }) => droppable && setWhere(droppable.id)}
+    >
+      <DragDropDebugger />
+
       <DragDropSensors />
-      <div class="min-h-15">
-        <Show when={where() === "outside"}>
+      <Droppable id={1}>
+        <Show when={where() === 1}>
           <Draggable />
         </Show>
-      </div>
-      <Droppable>
-        <Show when={where() === "inside"}>
+      </Droppable>
+      <Droppable id={2}>
+        <Show when={where() === 2}>
           <Draggable />
         </Show>
       </Droppable>
       <DragOverlay>
-        <div class="draggable">Drag Overlay!</div>
+        <div class="draggable flex h-20 items-center bg-orange-500">
+          Drag Overlay!
+        </div>
       </DragOverlay>
     </DragDropProvider>
   );

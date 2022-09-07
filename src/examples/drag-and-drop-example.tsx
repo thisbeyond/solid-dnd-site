@@ -1,9 +1,11 @@
 import {
   DragDropProvider,
   DragDropSensors,
+  DragEventHandler,
   createDraggable,
   createDroppable,
 } from "@thisbeyond/solid-dnd";
+import { createSignal, Show } from "solid-js";
 
 const Draggable = () => {
   const draggable = createDraggable(1);
@@ -14,7 +16,7 @@ const Draggable = () => {
   );
 };
 
-const Droppable = () => {
+const Droppable = (props) => {
   const droppable = createDroppable(1);
   return (
     <div
@@ -23,28 +25,35 @@ const Droppable = () => {
       classList={{ "!droppable-accept": droppable.isActiveDroppable }}
     >
       Droppable.
+      {props.children}
     </div>
   );
 };
 
 export const DragAndDropExample = () => {
-  let ref;
+  const [where, setWhere] = createSignal("outside");
 
-  const onDragEnd = ({ draggable, droppable }) => {
+  const onDragEnd: DragEventHandler = ({ droppable }) => {
     if (droppable) {
-      droppable.node.append(draggable.node);
+      setWhere("inside");
     } else {
-      ref.append(draggable.node);
+      setWhere("outside");
     }
   };
 
   return (
     <DragDropProvider onDragEnd={onDragEnd}>
       <DragDropSensors />
-      <div ref={ref} class="min-h-15">
-        <Draggable />
+      <div class="min-h-15">
+        <Show when={where() === "outside"}>
+          <Draggable />
+        </Show>
       </div>
-      <Droppable />
+      <Droppable>
+        <Show when={where() === "inside"}>
+          <Draggable />
+        </Show>
+      </Droppable>
     </DragDropProvider>
   );
 };

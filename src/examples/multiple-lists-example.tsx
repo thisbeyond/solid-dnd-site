@@ -35,8 +35,7 @@ const Column = (props) => {
 };
 
 export const MultipleListsExample = () => {
-  const [activeItem, setActiveItem] = createSignal(null);
-  const [containers, setContainers] = createStore({
+  const [containers, setContainers] = createStore<Record<string, number[]>>({
     A: [1, 2, 3],
     B: [4, 5, 6],
   });
@@ -74,7 +73,7 @@ export const MultipleListsExample = () => {
 
       if (getContainer(draggable.id) !== closestContainer.id) {
         const isLastItem =
-          containerItemIds.indexOf(closestItem.id) ===
+          containerItemIds.indexOf(closestItem.id as number) ===
           containerItemIds.length - 1;
 
         if (isLastItem) {
@@ -117,8 +116,6 @@ export const MultipleListsExample = () => {
     }
   };
 
-  const onDragStart = ({ draggable }) => setActiveItem(draggable.id);
-
   const onDragOver = ({ draggable, droppable }) => {
     if (draggable && droppable) {
       move(draggable, droppable);
@@ -129,13 +126,11 @@ export const MultipleListsExample = () => {
     if (draggable && droppable) {
       move(draggable, droppable, false);
     }
-    setActiveItem(null);
   };
 
   return (
     <div class="flex flex-col flex-1 mt-5 self-stretch">
       <DragDropProvider
-        onDragStart={onDragStart}
         onDragOver={onDragOver}
         onDragEnd={onDragEnd}
         collisionDetector={closestContainerOrItem}
@@ -147,7 +142,7 @@ export const MultipleListsExample = () => {
           </For>
         </div>
         <DragOverlay>
-          <div class="sortable">{activeItem()}</div>
+          {(draggable) => <div class="sortable">{draggable.id}</div>}
         </DragOverlay>
       </DragDropProvider>
     </div>
