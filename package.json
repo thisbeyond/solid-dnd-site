@@ -22,6 +22,6 @@
     "classcat": "^5.0.4",
     "prismjs": "^1.29.0",
     "solid-app-router": "^0.4.2",
-    "solid-js": "^1.5.2"
+    "solid-js": "^1.5.4"
   }
 }
