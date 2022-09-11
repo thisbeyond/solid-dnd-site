@@ -17,7 +17,7 @@
     "@amoutonbrady/solid-heroicons": "^0.8.0",
     "@fontsource/jetbrains-mono": "^4.5.10",
     "@fontsource/poppins": "^4.5.9",
-    "@thisbeyond/solid-dnd": "^0.7.0",
+    "@thisbeyond/solid-dnd": "^0.7.1",
     "@thisbeyond/solid-select": "^0.12.0",
     "classcat": "^5.0.4",
     "prismjs": "^1.29.0",
