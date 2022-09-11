@@ -61,7 +61,6 @@ const ColumnOverlay = (props) => {
 };
 
 export const BoardExample = () => {
-  const [activeItem, setActiveItem] = createSignal(null);
   const [containers, setContainers] = createStore({
     A: [1, 2, 3],
     B: [4, 5, 6],
@@ -159,8 +158,6 @@ export const BoardExample = () => {
     }
   };
 
-  const onDragStart = ({ draggable }) => setActiveItem(draggable.id);
-
   const onDragOver = ({ draggable, droppable }) => {
     if (draggable && droppable && !isContainer(draggable.id)) {
       move(draggable, droppable);
@@ -176,7 +173,6 @@ export const BoardExample = () => {
   return (
     <div class="flex flex-col flex-1 mt-5 self-stretch">
       <DragDropProvider
-        onDragStart={onDragStart}
         onDragOver={onDragOver}
         onDragEnd={onDragEnd}
         collisionDetector={closestContainerOrItem}
@@ -190,11 +186,14 @@ export const BoardExample = () => {
           </SortableProvider>
         </div>
         <DragOverlay>
-          {isContainer(activeItem()) ? (
-            <ColumnOverlay id={activeItem()} items={containers[activeItem()]} />
-          ) : (
-            <SortableOverlay item={activeItem()} />
-          )}
+          {(draggable) => {
+            const id = draggable.id;
+            return isContainer(id) ? (
+              <ColumnOverlay id={id} items={containers[id]} />
+            ) : (
+              <SortableOverlay item={id} />
+            );
+          }}
         </DragOverlay>
       </DragDropProvider>
     </div>
