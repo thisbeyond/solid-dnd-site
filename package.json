@@ -9,8 +9,8 @@
   "license": "MIT",
   "devDependencies": {
     "prettier": "^2.7.1",
-    "vite": "^3.2.2",
-    "vite-plugin-solid": "^2.3.10",
+    "vite": "^3.2.4",
+    "vite-plugin-solid": "^2.4.0",
     "vite-plugin-windicss": "^1.8.8"
   },
   "dependencies": {
@@ -22,6 +22,6 @@
     "classcat": "^5.0.4",
     "prismjs": "^1.29.0",
     "solid-app-router": "^0.4.2",
-    "solid-js": "^1.5.7"
+    "solid-js": "^1.6.2"
   }
 }
