@@ -17,6 +17,7 @@ import { ConditionalDropExample } from "../examples/conditional-drop-example";
 import { FineGrainedExample } from "../examples/fine-grained-example";
 import { BoardExample } from "../examples/board-example";
 import { DebuggerExample } from "../examples/debugger-example";
+import { CustomTransformExample } from "../examples/custom-transform";
 import dragAndDropString from "../examples/drag-and-drop-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
 import constrainAxisString from "../examples/constrain-axis-example?raw";
@@ -28,6 +29,7 @@ import multipleListsString from "../examples/multiple-lists-example?raw";
 import fineGrainedString from "../examples/fine-grained-example?raw";
 import boardString from "../examples/board-example?raw";
 import debuggerString from "../examples/debugger-example?raw";
+import customTransformString from "../examples/custom-transform?raw";
 import { InstallButton } from "../install-button";
 
 import "./home.css";
@@ -39,6 +41,7 @@ const Home = () => {
     "Drag overlay",
     "Conditional drop",
     "Fine grained / drag handle",
+    "Custom transform (rotate on drag)",
     "Custom transformer (limit x-axis)",
     "Arbitrary drag move",
     "Sortable list (vertical)",
@@ -129,6 +132,13 @@ const Home = () => {
                   <FineGrainedExample />
                 </ExampleDemo>
                 <ExampleCode code={fineGrainedString} />
+              </Example>
+            </Match><Match when={example() === "Custom transform (rotate on drag)"}>
+              <Example>
+                <ExampleDemo>
+                  <CustomTransformExample />
+                </ExampleDemo>
+                <ExampleCode code={customTransformString} />
               </Example>
             </Match>
             <Match when={example() === "Custom transformer (limit x-axis)"}>
