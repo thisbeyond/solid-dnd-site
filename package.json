@@ -19,6 +19,7 @@
     "@fontsource/poppins": "^4.5.10",
     "@thisbeyond/solid-dnd": "^0.7.4",
     "@thisbeyond/solid-select": "^0.13.0",
+    "big.js": "^6.2.1",
     "classcat": "^5.0.4",
     "prismjs": "^1.29.0",
     "solid-app-router": "^0.4.2",
