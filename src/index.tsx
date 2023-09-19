@@ -1,6 +1,6 @@
 import "windi.css";
 import { render } from "solid-js/web";
-import { Router } from "solid-app-router";
+import { Router } from "@solidjs/router";
 
 import Site from "./site";
 

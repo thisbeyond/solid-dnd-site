@@ -8,21 +8,21 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^2.8.3",
-    "vite": "^4.0.4",
-    "vite-plugin-solid": "^2.5.0",
-    "vite-plugin-windicss": "^1.8.10"
+    "prettier": "^3.0.3",
+    "vite": "^4.4.9",
+    "vite-plugin-solid": "^2.7.0",
+    "vite-plugin-windicss": "^1.9.1"
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.8.0",
-    "@fontsource/jetbrains-mono": "^4.5.11",
-    "@fontsource/poppins": "^4.5.10",
+    "@fontsource/jetbrains-mono": "^5.0.12",
+    "@fontsource/poppins": "^5.0.8",
+    "@solidjs/router": "^0.8.3",
     "@thisbeyond/solid-dnd": "^0.7.4",
-    "@thisbeyond/solid-select": "^0.13.0",
+    "@thisbeyond/solid-select": "^0.14.0",
     "big.js": "^6.2.1",
     "classcat": "^5.0.4",
     "prismjs": "^1.29.0",
-    "solid-app-router": "^0.4.2",
-    "solid-js": "^1.6.9"
+    "solid-js": "^1.7.12"
   }
 }
