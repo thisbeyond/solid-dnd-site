@@ -1,11 +1,10 @@
-import { Icon } from "@amoutonbrady/solid-heroicons";
-import { duplicate, check } from "@amoutonbrady/solid-heroicons/outline";
-import { createSignal } from "solid-js";
+import { IconCopy, IconCheck } from "@tabler/icons-solidjs";
+import { Show, createSignal } from "solid-js";
 
 export const InstallButton = () => {
   const code = "npm install @thisbeyond/solid-dnd";
   const [copied, setCopied] = createSignal(false);
-
+  const iconClass = "h-1.5em inline ml-1 align-bottom";
   return (
     <button
       class={
@@ -21,10 +20,9 @@ export const InstallButton = () => {
       }}
     >
       {code}
-      <Icon
-        path={copied() ? check : duplicate}
-        class="h-1.5em inline ml-1 align-bottom"
-      />
+      <Show when={copied()} fallback={<IconCopy class={iconClass} />}>
+        <IconCheck class={iconClass} />
+      </Show>
     </button>
   );
 };
