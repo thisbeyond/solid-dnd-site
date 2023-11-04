@@ -24,5 +24,10 @@
     "classcat": "^5.0.4",
     "prismjs": "^1.29.0",
     "solid-js": "^1.7.12"
+  },
+  "packageManager": "pnpm@8.6.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.6.0"
   }
 }
