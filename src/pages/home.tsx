@@ -1,4 +1,5 @@
-import { createSignal, Match, Switch } from "solid-js";
+import { createSignal, Match, onMount, Switch } from "solid-js";
+import { useSearchParams } from "@solidjs/router";
 import { Select, createOptions } from "@thisbeyond/solid-select";
 
 import { WaveFooter } from "../wave-footer";
@@ -35,7 +36,17 @@ import { InstallButton } from "../install-button";
 import "./home.css";
 
 const Home = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [example, setExample] = createSignal();
+  let examplesRef;
+
+  onMount(() => {
+    if (searchParams.example) {
+      setExample(decodeURIComponent(searchParams.example));
+      setTimeout(() => examplesRef.scrollIntoView({ behavior: "smooth" }), 250);
+    }
+  });
+
   const examples = [
     "Basic drag & drop",
     "Drag overlay",
@@ -85,13 +96,17 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="examples" class="bg-gray-100 py-8">
+      <section id="examples" class="bg-gray-100 py-8" ref={examplesRef}>
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <Select
             class="home"
             placeholder="Select example..."
-            onChange={(value) => setExample(value)}
+            initialValue={example()}
+            onChange={(value) => {
+              setExample(value);
+              setSearchParams({ example: encodeURIComponent(value) });
+            }}
             {...selectProps}
           />
           <Switch
