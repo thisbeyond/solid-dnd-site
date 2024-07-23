@@ -6,24 +6,25 @@
     "dev": "vite",
     "build": "vite build"
   },
+  "type": "module",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "vite": "^4.4.9",
-    "vite-plugin-solid": "^2.7.0",
-    "vite-plugin-windicss": "^1.9.1"
+    "prettier": "^3.3.2",
+    "vite": "^5.3.3",
+    "vite-plugin-solid": "^2.10.2",
+    "vite-plugin-windicss": "^1.9.3"
   },
   "dependencies": {
-    "@fontsource/jetbrains-mono": "^5.0.12",
-    "@fontsource/poppins": "^5.0.8",
-    "@solidjs/router": "^0.8.3",
-    "@tabler/icons-solidjs": "^2.38.0",
-    "@thisbeyond/solid-dnd": "^0.7.4",
+    "@fontsource/jetbrains-mono": "^5.0.20",
+    "@fontsource/poppins": "^5.0.14",
+    "@solidjs/router": "^0.13.6",
+    "@tabler/icons-solidjs": "^3.9.0",
+    "@thisbeyond/solid-dnd": "^0.7.5",
     "@thisbeyond/solid-select": "^0.14.0",
     "big.js": "^6.2.1",
-    "classcat": "^5.0.4",
+    "classcat": "^5.0.5",
     "prismjs": "^1.29.0",
-    "solid-js": "^1.7.12"
+    "solid-js": "^1.8.18"
   },
   "packageManager": "pnpm@8.6.0",
   "engines": {
