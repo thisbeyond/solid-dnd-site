@@ -11,3 +11,17 @@
 .home .solid-select-option {
   @apply font-normal text-2xl whitespace-normal;
 }
+
+div.hint {
+  padding: 12px;
+  margin-block: 16px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+div.hint span.highlight {
+  background-color: antiquewhite;
+  white-space: nowrap;
+  font-family: monospace;
+
+}

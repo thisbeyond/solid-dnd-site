@@ -8,6 +8,7 @@ import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
 import { Example, ExampleCode, ExampleDemo } from "../example";
 import { DragAndDropExample } from "../examples/drag-and-drop-example";
+import { MobileExample } from "../examples/mobile-example";
 import { DragOverlayExample } from "../examples/drag-overlay-example";
 import { ConstrainAxisExample } from "../examples/constrain-axis-example";
 import { DragMoveExample } from "../examples/drag-move-example";
@@ -20,6 +21,7 @@ import { BoardExample } from "../examples/board-example";
 import { DebuggerExample } from "../examples/debugger-example";
 import { CustomTransformExample } from "../examples/custom-transform";
 import dragAndDropString from "../examples/drag-and-drop-example?raw";
+import mobileString from "../examples/mobile-example?raw";
 import dragOverlayString from "../examples/drag-overlay-example?raw";
 import constrainAxisString from "../examples/constrain-axis-example?raw";
 import dragMoveString from "../examples/drag-move-example?raw";
@@ -49,6 +51,7 @@ const Home = () => {
 
   const examples = [
     "Basic drag & drop",
+    "Mobile support",
     "Drag overlay",
     "Conditional drop",
     "Fine grained / drag handle",
@@ -125,6 +128,14 @@ const Home = () => {
                 <ExampleCode code={dragAndDropString} />
               </Example>
             </Match>
+            <Match when={example() === "Mobile support"}>
+              <Example>
+                <ExampleDemo>
+                  <MobileExample />
+                </ExampleDemo>
+                <ExampleCode code={mobileString} />
+              </Example>
+            </Match>
             <Match when={example() === "Drag overlay"}>
               <Example>
                 <ExampleDemo>
@@ -148,7 +159,8 @@ const Home = () => {
                 </ExampleDemo>
                 <ExampleCode code={fineGrainedString} />
               </Example>
-            </Match><Match when={example() === "Custom transform (rotate on drag)"}>
+            </Match>
+            <Match when={example() === "Custom transform (rotate on drag)"}>
               <Example>
                 <ExampleDemo>
                   <CustomTransformExample />
